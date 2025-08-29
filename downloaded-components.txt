@@ -1,0 +1,366 @@
+// ===== Component: ButtonError =====
+
+// ---- Component (vue) ----
+
+<UButton
+  color="error"
+  size="lg"
+  icon="i-lucide-rocket"
+>
+  Button
+</UButton>
+
+
+
+// ---- CSS (css) ----
+
+display: flex;
+width: 137px;
+height: 93px;
+padding: var(--2, 8px) var(--3, 12px);
+align-items: center;
+gap: var(--15, 6px);
+flex-shrink: 0;
+border-radius: rounded-[calc(var(--ui-radius)*1,5)];
+background: #FB2C36;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'flex',
+  width: '137px',
+  height: '93px',
+  padding: 'var(--2, 8px) var(--3, 12px)',
+  alignItems: 'center',
+  gap: 'var(--15, 6px)',
+  flexShrink: '0',
+  borderRadius: 'rounded-[calc(var(--ui-radius)*1,5)]',
+  background: '#FB2C36'
+}
+
+
+// ===== Component: ButtonSecondary =====
+
+// ---- Component (vue) ----
+
+<UButton
+  variant="ghost"
+  color="secondary"
+  size="sm"
+>
+  ghost
+</UButton>
+
+
+
+// ---- CSS (css) ----
+
+display: inline-flex;
+height: 27px;
+padding: var(--15, 6px) var(--25, 10px);
+align-items: center;
+gap: var(--15, 6px);
+flex-shrink: 0;
+border-radius: rounded-[calc(var(--ui-radius)*1,5)];
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'inline-flex',
+  height: '27px',
+  padding: 'var(--15, 6px) var(--25, 10px)',
+  alignItems: 'center',
+  gap: 'var(--15, 6px)',
+  flexShrink: '0',
+  borderRadius: 'rounded-[calc(var(--ui-radius)*1,5)]'
+}
+
+
+// ===== Component: InputOutline =====
+
+// ---- Component (vue) ----
+
+<UInput
+  placeholder="Placeholder"
+  color="neutral"
+  size="xs"
+  trailing-icon="i-lucide-search"
+/>
+
+
+
+// ---- CSS (css) ----
+
+display: flex;
+width: 192px;
+padding: var(--1, 4px) var(--2, 8px);
+justify-content: space-between;
+align-items: flex-start;
+border-radius: rounded-[calc(var(--ui-radius)*1,5)];
+border: 1px solid --ui-border-accented;
+background: --ui-bg;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'flex',
+  width: '192px',
+  padding: 'var(--1, 4px) var(--2, 8px)',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  borderRadius: 'rounded-[calc(var(--ui-radius)*1,5)]',
+  border: '1px solid --ui-border-accented',
+  background: '--ui-bg'
+}
+
+
+// ===== Component: comp_button =====
+
+// ---- CSS (css) ----
+
+display: flex;
+width: 120px;
+height: 40px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 5px;
+border: 2px solid #00A94F;
+background: #FFF;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'flex',
+  width: '120px',
+  height: '40px',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '10px',
+  flexShrink: '0',
+  borderRadius: '5px',
+  border: '2px solid #00A94F',
+  background: '#FFF'
+}
+
+
+// ===== Component: Component 1 =====
+
+// ---- CSS (css) ----
+
+display: flex;
+width: 155px;
+height: 36px;
+justify-content: center;
+align-items: flex-start;
+gap: 8px;
+flex-shrink: 0;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'flex',
+  width: '155px',
+  height: '36px',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  gap: '8px',
+  flexShrink: '0'
+}
+
+
+// ===== Component: Badge =====
+
+// ---- Component (vue) ----
+
+<UBadge size="xl">
+  HOT NEWS
+</UBadge>
+
+
+
+// ---- CSS (css) ----
+
+display: inline-flex;
+height: 32px;
+padding: var(--1, 4px) var(--25, 10px);
+justify-content: center;
+align-items: center;
+gap: var(--15, 6px);
+flex-shrink: 0;
+border-radius: var(--Corner-None, 0);
+background: #00E5FF;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'inline-flex',
+  height: '32px',
+  padding: 'var(--1, 4px) var(--25, 10px)',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: 'var(--15, 6px)',
+  flexShrink: '0',
+  borderRadius: 'var(--Corner-None, 0)',
+  background: '#00E5FF'
+}
+
+
+// ===== Component: NavigationMenu =====
+
+// ---- Component (vue) ----
+
+<UNavigationMenu
+  :items="[
+    {
+      label: 'Label',
+      icon: 'i-lucide-book-open',
+      to: '/label',
+      badge: {
+        label: '10',
+        size: 'xs'
+      },
+      active: true
+    },
+    {
+      label: 'Label',
+      icon: 'i-lucide-book-open',
+      to: '/label',
+      badge: {
+        label: '10',
+        size: 'xs'
+      }
+    },
+    {
+      label: 'Label',
+      icon: 'i-lucide-book-open',
+      to: '/label',
+      badge: {
+        label: '10',
+        size: 'xs'
+      }
+    },
+    {
+      label: 'Label',
+      icon: 'i-lucide-book-open',
+      to: '/label',
+      badge: {
+        label: '10',
+        size: 'xs'
+      }
+    }
+  ]"
+  color="neutral"
+  variant="link"
+/>
+
+
+
+// ---- CSS (css) ----
+
+display: inline-flex;
+align-items: center;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'inline-flex',
+  alignItems: 'center'
+}
+
+
+// ===== Component: NavigationMenu =====
+
+// ---- Component (vue) ----
+
+<UNavigationMenu
+  :items="[
+    {
+      label: '樹造幸福',
+      to: '/樹造幸福',
+      active: true
+    },
+    {
+      label: '愛的報報',
+      to: '/愛的報報'
+    },
+    {
+      label: '大樹扎根',
+      to: '/大樹扎根'
+    },
+    {
+      label: '聯絡我們',
+      to: '/聯絡我們'
+    }
+  ]"
+  color="neutral"
+  variant="link"
+/>
+
+
+
+// ---- CSS (css) ----
+
+display: flex;
+width: 344px;
+height: 48px;
+align-items: center;
+flex-shrink: 0;
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'flex',
+  width: '344px',
+  height: '48px',
+  alignItems: 'center',
+  flexShrink: '0'
+}
+
+
+// ===== Component: Carousel =====
+
+// ---- Component (vue) ----
+
+<UCarousel
+  :items="[]"
+  arrows
+  dots
+  :prev="{
+    variant: 'outline',
+    square: true
+  }"
+  :next="{
+    variant: 'outline',
+    square: true
+  }"
+/>
+
+
+
+// ---- CSS (css) ----
+
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+gap: var(--6, 24px);
+
+
+// ---- JavaScript (js) ----
+
+{
+  display: 'inline-flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: 'var(--6, 24px)'
+}
+

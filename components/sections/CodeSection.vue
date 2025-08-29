@@ -8,7 +8,7 @@ import Info from '@/components/icons/Info.vue'
 import Preview from '@/components/icons/Preview.vue'
 import Section from '@/components/Section.vue'
 import { selection, selectedNode, options, selectedTemPadComponent, activePlugin } from '@/ui/state'
-import { getDesignComponent } from '@/utils'
+import { getDesignComponent, codegen } from '@/utils'
 
 const componentCode = shallowRef('')
 const componentLink = shallowRef('')
@@ -51,6 +51,57 @@ async function updateCode() {
     warning.value = node.warning
   } else {
     warning.value = ''
+  }
+}
+
+async function downloadAllFromFrame(frameNode: any) {
+  try {
+    const parts: string[] = []
+
+    const children = Array.isArray(frameNode.children) ? frameNode.children : []
+    const { cssUnit, rootFontSize, scale } = options.value
+    const serializeOptions = {
+      useRem: cssUnit === 'rem',
+      rootFontSize,
+      scale
+    }
+
+    for (const child of children) {
+      // try to get a design component representation for each child
+      const component = getDesignComponent(child)
+      if (!component) continue
+
+      const style = await child.getCSSAsync()
+
+      const resp = await codegen(style, component, serializeOptions, activePlugin.value?.code || undefined)
+      const blocks = resp.codeBlocks || []
+
+      parts.push(`// ===== Component: ${child.name || child.id} =====\n`)
+      for (const b of blocks) {
+        parts.push(`// ---- ${b.title || b.name} (${b.lang}) ----\n`)
+        parts.push(b.code)
+        parts.push('\n')
+      }
+    }
+
+    if (parts.length === 0) {
+      // nothing to download
+      return
+    }
+
+    const blob = new Blob([parts.join('\n')], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    const filename = `${frameNode.name ? frameNode.name.replace(/\s+/g, '_') : 'frame'}-components-code.txt`
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
+  } catch (e) {
+    // silent fail, could surface a toast in the future
+    console.error('downloadAllFromFrame failed', e)
   }
 }
 
@@ -105,6 +156,16 @@ function open() {
       :lang="lang"
       :code="code"
     />
+    <div class="tp-row tp-row-justify" style="padding:8px 16px;">
+      <IconButton
+        :disabled="!(selectedNode && (selectedNode as any).type === 'FRAME')"
+        variant="normal"
+        title="Download all components in frame"
+        @click="downloadAllFromFrame(selectedNode)"
+      >
+        Download components
+      </IconButton>
+    </div>
   </Section>
 </template>
 
